@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Nhi!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: #ff6b6b;
+            text-align: center;
+            animation: bounce 1s infinite, colorChange 3s infinite alternate;
+            margin-bottom: 30px;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-30px);
+            }
+
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes colorChange {
+            0% {
+                color: #ff6b6b;
+            }
+
+            25% {
+                color: #f9ca24;
+            }
+
+            50% {
+                color: #1dd1a1;
+            }
+
+            75% {
+                color: #5f27cd;
+            }
+
+            100% {
+                color: #ff6b6b;
+            }
+        }
+
+        /* confetti */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f9ca24;
+            top: -10px;
+            animation: fall 3s linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* Download button */
+        .btn {
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: 600;
+            background: #ff6b6b;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #ff4757;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Happy Birthday Nhi! 🎉🌸</h1>
+
+    <!-- confetti -->
+    <div class="confetti" style="left:10%; background:#ff6b6b;"></div>
+    <div class="confetti" style="left:30%; background:#1dd1a1;"></div>
+    <div class="confetti" style="left:50%; background:#f368e0;"></div>
+    <div class="confetti" style="left:70%; background:#ff9f43;"></div>
+    <div class="confetti" style="left:90%; background:#54a0ff;"></div>
+
+    <!-- Download PDF button -->
+    <a id="downloadBtn" class="btn" href="happybirthday.pdf" download>Download Your PDF</a>
+    <p style="font-size:12px; color:#333; margin-top:10px;">From Bin Bin with love - 2025/11/04</p>
+
+    <script>
+        // Optional: force download in some browsers
+        document.getElementById('downloadBtn').addEventListener('click', function (e) {
+            e.preventDefault();
+            const link = document.createElement('a');
+            link.href = this.href;
+            link.download = 'BirthdayCard.pdf'; // filename for download
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
+
+</body>
+
+</html>
